@@ -16,7 +16,7 @@
     <ul>
       <%% for (var attr in pokemon.attributes) { %>
         <%% if (pokemon.get(attr) && attr !== 'id' && attr !== 'image_url') %>
-        <li><strong> attr: </strong><%%= pokemon.escape(attr) %></li>
+        <li><strong> <%%= attr %> : </strong><%%= pokemon.escape(attr) %></li>
       <%% }; %>
     </ul>
   </div>
@@ -33,6 +33,14 @@
 </script>
 
 <script type="text/template" id="toy-detail-template">
+  <div class="detail">
+    <img src="<%%= toy.escape('image_url') %>"><br>
+    <ul>
+      <%% ["id", "happiness", "name", "price"].forEach(function (attr) { %>
+        <li><strong> <%%= attr %> : </strong><%%= toy.escape(attr) %></li>
+      <%% }); %>
+    </ul>
+  </div>
 </script>
 
 <script type="text/template" id="pokemon-form-template">
