@@ -1,5 +1,5 @@
 <script type="text/template" id="pokemon-list-item-template">
-  <li class="poke-list-item" data-id= <%%= pokemon.get('id') %>>
+  <li class="poke-list-item" data-id= "<%%= pokemon.get('id') %>">
     <ul>
       <%% ['name', 'poke_type'].forEach(function (attr) { %>
         <li>
@@ -23,8 +23,8 @@
 </script>
 
 <script type="text/template" id="toy-list-item-template">
-  <ul>
-    <li class="toy-list-item" data-id="<%%= toy.get('id') %>">
+  <ul class="toys">
+    <li class="toy-list-item" data-id="<%%= toy.get('id') %>" data-pokemon-id="<%%= toy.get('pokemon_id') %>">
       <%% ['name', 'happiness', 'price'].forEach(function (attr) { %>
         <%%= attr %> : <%%= toy.escape(attr) %><br>
       <%% }); %>

@@ -4,11 +4,7 @@ Pokedex.RootView.prototype.renderPokemonDetail = function (pokemon) {
   var that = this;
 
   pokemon.fetch({ success: function () {
-      var toys = pokemon.toys();
-
-      toys.forEach( function (toy) {
-        that.addToyToList(toy);
-      });
+      that.renderToysList(pokemon.toys());
     }
   });
 };
