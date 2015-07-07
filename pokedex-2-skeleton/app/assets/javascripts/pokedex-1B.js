@@ -1,5 +1,5 @@
 Pokedex.RootView.prototype.renderPokemonDetail = function (pokemon) {
-  var content = JST["pokemonDetail"] ({ pokemon: pokemon});
+  var content = JST["pokemonDetail"]({pokemon: pokemon} );
   this.$pokeDetail.html(content);
 
   // Phase 2C.
