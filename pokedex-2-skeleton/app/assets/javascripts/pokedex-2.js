@@ -1,14 +1,6 @@
 Pokedex.RootView.prototype.addToyToList = function (toy) {
-  var $li = $('<li class="toy-list-item">');
-  $li.data('id', toy.get('id'));
-  $li.data('pokemon-id', toy.get('pokemon_id'));
-
-  var shortInfo = ['name', 'happiness', 'price'];
-  shortInfo.forEach(function (attr) {
-    $li.append(attr + ': ' + toy.get(attr) + '<br>');
-  });
-
-  this.$pokeDetail.find(".toys").append($li);
+  var toy_content = JST["toyListItem"]({ toy: toy });
+  this.$pokeDetail.append(toy_content);
 };
 
 Pokedex.RootView.prototype.renderToyDetail = function (toy) { // III

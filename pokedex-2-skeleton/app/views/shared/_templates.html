@@ -23,6 +23,13 @@
 </script>
 
 <script type="text/template" id="toy-list-item-template">
+  <ul>
+    <li class="toy-list-item" data-id="<%%= toy.get('id') %>">
+      <%% ['name', 'happiness', 'price'].forEach(function (attr) { %>
+        <%%= attr %> : <%%= toy.escape(attr) %><br>
+      <%% }); %>
+    </li>
+  </ul>
 </script>
 
 <script type="text/template" id="toy-detail-template">

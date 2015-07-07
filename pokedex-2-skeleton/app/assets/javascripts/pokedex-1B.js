@@ -1,18 +1,15 @@
 Pokedex.RootView.prototype.renderPokemonDetail = function (pokemon) {
-  var content = JST["pokemonDetail"]({pokemon: pokemon} );
+  var content = JST["pokemonDetail"]({ pokemon: pokemon });
   this.$pokeDetail.html(content);
+  var that = this;
 
-  // Phase 2C.
-  this.$pokeDetail.append(
-    '<span style="font-weight: bold;">Toys:</span><br>'
-  );
-  var $toys = $('<ul class="toys"></ul>');
-  this.$pokeDetail.append($toys);
+  pokemon.fetch({ success: function () {
+      var toys = pokemon.toys();
 
-  pokemon.fetch({
-    success: (function() {
-      this.renderToysList(pokemon.toys());
-    }).bind(this)
+      toys.forEach( function (toy) {
+        that.addToyToList(toy);
+      });
+    }
   });
 };
 
