@@ -5,7 +5,7 @@ Pokedex.RootView.prototype.addToyToList = function (toy) {
 
 Pokedex.RootView.prototype.renderToyDetail = function (toy) { // III
   this.$toyDetail.empty();
-  var content = JST["toyDetail"]( {toy: toy} );
+  var content = JST["toyDetail"]( {toy: toy, pokes: this.pokes} );
   this.$toyDetail.html(content);
 
   // Phase III

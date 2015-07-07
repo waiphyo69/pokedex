@@ -40,6 +40,16 @@
         <li><strong> <%%= attr %> : </strong><%%= toy.escape(attr) %></li>
       <%% }); %>
     </ul>
+    <select data-pokemon-id="<%%= toy.get('pokemon_id') %>" data-toy-id="<%%= toy.get('id') %>">
+      <%% pokes.forEach(function (pokemon) { %>
+        <option value="<%%= pokemon.id %>"
+          <%% if (pokemon.id === toy.get('pokemon_id')){ %>
+             <%%= "selected" %>
+            <%% } %>>
+          <%%= pokemon.escape("name") %>
+        </option>
+      <%% }); %>
+    </select>
   </div>
 </script>
 
